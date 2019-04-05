@@ -618,6 +618,7 @@ func isAPITokenValid(w http.ResponseWriter, r *http.Request, apiData *Connection
 		// methodLogEntry.Debug("Allowing access without authorization token in dev mode")
 		return true
 	}
+	fmt.Printf("FIXMEH: hi there\n")
 	methodLogEntry.Debug("Checking API token")
 
 	if len(r.Header.Get("Authorization")) == 0 {

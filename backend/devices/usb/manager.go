@@ -17,6 +17,7 @@ package usb
 import (
 	"encoding/hex"
 	"os"
+	"log"
 	"regexp"
 	"time"
 
@@ -57,6 +58,8 @@ func DeviceInfos() []hid.DeviceInfo {
 		}
 		if isBitBox(deviceInfo) || isBitBox02(deviceInfo) {
 			deviceInfos = append(deviceInfos, deviceInfo)
+		} else {
+			log.Printf("FIXMEH: found a non-bitbox USB device: %v\n", deviceInfo)
 		}
 	}
 	return deviceInfos
